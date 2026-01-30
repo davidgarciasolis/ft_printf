@@ -6,12 +6,13 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 04:04:36 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/28 00:04:30 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/01/30 02:27:54 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdarg.h>
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(char const *str, ...)
 {
@@ -33,7 +34,7 @@ int	ft_printf(char const *str, ...)
 			{
 				y++;
 			}
-			ft_putchar(va_arg(args, int));
+			ft_putptr(va_arg(args, void *));
 		}
 		else
 		{
@@ -47,6 +48,11 @@ int	ft_printf(char const *str, ...)
 
 int	main(void)
 {
-	ft_printf("%c%c\n", 'H', 'i');	
+	void	*ptr;
+	int		n;
+	
+	ptr = &n;
+	printf("%p\n", ptr);
+	ft_printf("%p\n", ptr);	
 	return (0);
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 23:09:26 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/30 02:04:47 by davgarc4         ###   ########.fr       */
+/*   Created: 2026/01/30 01:50:52 by davgarc4          #+#    #+#             */
+/*   Updated: 2026/01/30 02:33:35 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include <unistd.h>
+#include "ft_printf.h"
 
-int		ft_printf(char const *str, ...);
-int		ft_strlen(char *str);
-char	*ft_strcpy(char *dst, const char *src);
-int		ft_putchar(int c);
-int		ft_putstr(char	*ptr);
-int		ft_putptr(void *ptr);
-int		ft_puthex(unsigned long n);
+int	ft_puthex(unsigned long n)
+{
+	char	base_hex[17];
+	int		i;
 
-#endif
+	if (!n)
+		return (-1);
+	ft_strcpy(base_hex, "0123456789abcdef");
+	i = 0;
+	if(n >= 16)
+		i = ft_puthex(n / 16);
+	i += ft_putchar(base_hex[n % 16]);
+	return (i);
+}
