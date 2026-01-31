@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putint.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 02:00:03 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/31 13:12:00 by davgarc4         ###   ########.fr       */
+/*   Created: 2026/01/31 12:59:51 by davgarc4          #+#    #+#             */
+/*   Updated: 2026/01/31 16:15:27 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_putint(int n)
 {
-	unsigned long	addr;
-
-	if (!ptr)
-		{
-			write (1, "0x0", 3);
-			return (-1);
-		}
-	addr = (unsigned long)ptr;
-	write (1, "0x", 2);
-	return (ft_puthex(addr) + '0' + 'x');
+	int len;
+	
+	if (!n)
+		return (-1);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if(n >= 10)
+		len = ft_putint(n / 10);
+	len += ft_putchar((n % 10) + '0');
+	return (len);
 }
+/*
+int	main(void)
+{
+	ft_putint(-96);
+	return (0);
+}
+*/

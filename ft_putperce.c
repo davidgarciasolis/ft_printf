@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_putperce.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/30 02:00:03 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/31 13:12:00 by davgarc4         ###   ########.fr       */
+/*   Created: 2026/01/31 18:14:35 by davgarc4          #+#    #+#             */
+/*   Updated: 2026/01/31 18:54:17 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "ft_printf.h"
 
-int	ft_putptr(void *ptr)
+int	ft_putperce(void)
 {
-	unsigned long	addr;
-
-	if (!ptr)
-		{
-			write (1, "0x0", 3);
-			return (-1);
-		}
-	addr = (unsigned long)ptr;
-	write (1, "0x", 2);
-	return (ft_puthex(addr) + '0' + 'x');
+	ft_putchar('%');
 }
