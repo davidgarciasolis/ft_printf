@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 04:04:36 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 19:16:00 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/04 20:41:43 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printargs(char str, va_list args)
 	else if (str == 'd' || str == 'i')
 		n = ft_putint(va_arg(args, int));
 	else if (str == 'u')
-		n = ft_putfloat_unsigned((unsigned long)va_arg(args, unsigned int));
+    	n = ft_putunsigned(va_arg(args, unsigned int));
 	else if (str == 'x')
 		n = ft_puthex_tolower((unsigned long)va_arg(args, unsigned int));
 	else if (str == 'X')
@@ -62,7 +62,7 @@ int	ft_printf(char const *str, ...)
 	va_end(args);
 	return (n);	
 }
-
+/*
 int	main(void)
 {
 	int		ret1;
@@ -92,3 +92,4 @@ int	main(void)
 
 	return (0);
 }
+*/

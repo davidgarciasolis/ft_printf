@@ -6,24 +6,35 @@
 #    By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 19:05:03 by davgarc4          #+#    #+#              #
-#    Updated: 2026/02/04 19:41:47 by davgarc4         ###   ########.fr        #
+#    Updated: 2026/02/04 20:38:44 by davgarc4         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
 
-SOURCE = \
+SRCS = \
+	ft_printf.c \
+	ft_putchar.c \
+	ft_putstr.c \
+	ft_putint.c \
+	ft_puthex_tolower.c \
+	ft_puthex_toupper.c \
+	ft_putptr.c \
+	ft_putperce.c \
+	ft_putfloat.c \
+	ft_putunsigned.c \
+	ft_strcpy.c \
+	ft_strlen.c
 	
-OBJS = $(SOURCE:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
-CFLAGS = -Wall -Wextra -Werror
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c libft.h
-	cc $(CFLAGS) -c $< -o $@
+	cc -Wall -Wextra -Werror -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
