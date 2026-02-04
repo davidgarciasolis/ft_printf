@@ -6,14 +6,15 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 23:06:40 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/27 23:07:50 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/04 21:05:53 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_strlen(char *str)
 {
 	int	i;
+
 	while (str[i])
 		i++;
-	return (i);	
+	return (i);
 }

@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 12:59:51 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/31 16:15:27 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/04 20:58:34 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	ft_putint(int n)
 {
-	int len;
-	
+	int	len;
+
 	if (!n)
 		return (-1);
 	if (n < 0)
@@ -23,7 +23,7 @@ int	ft_putint(int n)
 		ft_putchar('-');
 		n = -n;
 	}
-	if(n >= 10)
+	if (n >= 10)
 		len = ft_putint(n / 10);
 	len += ft_putchar((n % 10) + '0');
 	return (len);

@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 04:04:36 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 20:41:43 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/04 21:03:58 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	ft_printargs(char str, va_list args)
 	else if (str == 'd' || str == 'i')
 		n = ft_putint(va_arg(args, int));
 	else if (str == 'u')
-    	n = ft_putunsigned(va_arg(args, unsigned int));
+		n = ft_putunsigned(va_arg(args, unsigned int));
 	else if (str == 'x')
 		n = ft_puthex_tolower((unsigned long)va_arg(args, unsigned int));
 	else if (str == 'X')
@@ -44,7 +44,7 @@ int	ft_printf(char const *str, ...)
 	va_list	args;
 	int		x;
 	int		n;
-	
+
 	x = 0;
 	n = 0;
 	va_start(args, str);
@@ -60,7 +60,7 @@ int	ft_printf(char const *str, ...)
 		x++;
 	}
 	va_end(args);
-	return (n);	
+	return (n);
 }
 /*
 int	main(void)
@@ -77,13 +77,15 @@ int	main(void)
 
 	ret1 = ft_printf("ft_printf:\n");
 	ret1 = ft_printf(
-		"char: %c | string: %s | int: %d | unsigned: %u | hex: %x | HEX: %X | ptr: %p | %%\n",
+		"char: %c | string: %s | int: %d | 
+		unsigned: %u | hex: %x ",
 		c, str, n, (unsigned int)n, n, n, &n
 	);
 
 	ret2 = printf("\nprintf:\n");
 	ret2 = printf(
-		"char: %c | string: %s | int: %d | unsigned: %u | hex: %x | HEX: %X | ptr: %p | %%\n",
+		"char: %c | string: %s | int: %d | unsigned: %u | 
+		hex: %x | HEX: %X | ptr: %p | %%\n",
 		c, str, n, (unsigned int)n, n, n, &n
 	);
 
