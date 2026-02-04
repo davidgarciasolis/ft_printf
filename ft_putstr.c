@@ -6,22 +6,29 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 01:11:30 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/01/28 01:19:15 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/04 19:33:40 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putstr(char	*ptr)
+#include "ft_printf.h"
+#include <unistd.h>
+
+int	ft_putstr(char *str)
 {
 	int	i;
+	int	n;
 
 	i = 0;
-	if (!ptr)
-		return (NULL);
-	while (ptr[i])
+	n = 0;
+	if (str == NULL)
 	{
-		if(ft_putchar(ptr[i]) == -1)
-			return (-1);
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		n = n + ft_putchar(str[i]);
 		i++;
 	}
-	return (i);
+	return (n);
 }
