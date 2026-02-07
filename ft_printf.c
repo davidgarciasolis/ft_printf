@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 04:04:36 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 21:03:58 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/07 12:57:26 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,19 @@
 
 int	ft_printargs(char str, va_list args)
 {
-	int	n;
+	int		n;
+	char	c;
 
 	n = 0;
+	c = str;
 	if (str == '%')
 		n = ft_putperce();
 	else if (str == 'c')
 		n = ft_putchar(va_arg(args, int));
-	else if (str == 's')
+	else if (c == 's')
 		n = ft_putstr(va_arg(args, char *));
 	else if (str == 'd' || str == 'i')
-		n = ft_putint(va_arg(args, int));
+		n = ft_putint((long)va_arg(args, int));
 	else if (str == 'u')
 		n = ft_putunsigned(va_arg(args, unsigned int));
 	else if (str == 'x')
@@ -45,6 +47,8 @@ int	ft_printf(char const *str, ...)
 	int		x;
 	int		n;
 
+	if (!str)
+		return (-1);
 	x = 0;
 	n = 0;
 	va_start(args, str);
@@ -52,8 +56,8 @@ int	ft_printf(char const *str, ...)
 	{
 		if (str[x] == '%')
 		{
-			n += ft_printargs(str[++x], args);
 			x++;
+			n += ft_printargs(str[x], args);
 		}
 		else
 			n += ft_putchar(str[x]);
@@ -65,33 +69,8 @@ int	ft_printf(char const *str, ...)
 /*
 int	main(void)
 {
-	int		ret1;
-	int		ret2;
-	int		n;
-	char	c;
-	char	*str;
-
-	n = 42;
-	c = 'A';
-	str = "Hola mundo";
-
-	ret1 = ft_printf("ft_printf:\n");
-	ret1 = ft_printf(
-		"char: %c | string: %s | int: %d | 
-		unsigned: %u | hex: %x ",
-		c, str, n, (unsigned int)n, n, n, &n
-	);
-
-	ret2 = printf("\nprintf:\n");
-	ret2 = printf(
-		"char: %c | string: %s | int: %d | unsigned: %u | 
-		hex: %x | HEX: %X | ptr: %p | %%\n",
-		c, str, n, (unsigned int)n, n, n, &n
-	);
-
-	printf("\nReturn ft_printf: %d\n", ret1);
-	printf("Return printf   : %d\n", ret2);
-
+	printf(" %d ", 0);
+	ft_printf(" %d ", 0);
 	return (0);
 }
 */

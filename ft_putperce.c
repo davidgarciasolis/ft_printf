@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 18:14:35 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 21:07:44 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/07 12:57:42 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 int	ft_putperce(void)
 {
-	ft_putchar('%');
+	return (ft_putchar('%'));
 }

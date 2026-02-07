@@ -6,13 +6,14 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 23:28:40 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 21:04:29 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/07 12:46:11 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int	ft_putchar(char c)
+int	ft_putchar(int c)
 {
-	return (write(1, &c, 1));
+	write(1, &c, 1);
+	return (1);
 }

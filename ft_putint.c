@@ -6,25 +6,26 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 12:59:51 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 20:58:34 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/07 12:52:47 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <unistd.h>
+#include <stdio.h>
 
-int	ft_putint(int n)
+int	ft_putint(long n)
 {
 	int	len;
 
-	if (!n)
-		return (-1);
+	len = 0;
 	if (n < 0)
 	{
-		ft_putchar('-');
+		len = ft_putchar('-');
 		n = -n;
 	}
 	if (n >= 10)
-		len = ft_putint(n / 10);
+		len += ft_putint(n / 10);
 	len += ft_putchar((n % 10) + '0');
 	return (len);
 }

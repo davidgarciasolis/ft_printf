@@ -6,7 +6,7 @@
 /*   By: davgarc4 <davgarc4@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/30 01:50:52 by davgarc4          #+#    #+#             */
-/*   Updated: 2026/02/04 21:08:11 by davgarc4         ###   ########.fr       */
+/*   Updated: 2026/02/07 12:55:55 by davgarc4         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ int	ft_puthex_toupper(unsigned long n)
 	char	base_hex[17];
 	int		i;
 
-	if (!n)
-		return (-1);
 	ft_strcpy(base_hex, "0123456789ABCDEF");
 	i = 0;
 	if (n >= 16)
